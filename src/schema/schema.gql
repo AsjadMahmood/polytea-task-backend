@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  _id: String!
+  brand: String!
+  category: String!
+  description: String
+  discountPercentage: Float!
+  id: Int!
+  images: [String!]!
+  name: String!
+  price: Float!
+  rating: Float!
+  stock: Float!
+  thumbnail: String!
+  title: String!
+}
+
+type Query {
+  book(id: ID!): Product!
+  books: [Product!]!
+}

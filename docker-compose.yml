@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+    mongodb:
+        image: mongo:latest
+        container_name: db
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: test-user
+            MONGO_INITDB_ROOT_PASSWORD: test-password
+            MONGO_INITDB_DATABASE: polyteia-challenge-db
+        ports:
+            - 27017:27017
+        volumes:
+            - ./src/utils/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
