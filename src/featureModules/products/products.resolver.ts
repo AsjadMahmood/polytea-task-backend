@@ -14,14 +14,15 @@ export class ProductResolver
   }
 
   @Query(() => [Product], { name: 'products' })
-  async books(): Promise<Product[]>
+  async getProducts(): Promise<Product[]>
   {
     return this.productService.findAll();
   }
 
-  @Query(() => Product)
-  async book(@Args('id', { type: () => ID }) id: string): Promise<Product>
+  @Query(() => Product, { name: 'productById' })
+  async getProductById(@Args('id', { type: () => ID }) id: string): Promise<Product>
   {
     return this.productService.findOne(id);
   }
+
 }

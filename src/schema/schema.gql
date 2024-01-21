@@ -17,7 +17,7 @@ type Product {
 }
 
 type Query {
-  book(id: ID!): Product!
+  productById(id: ID!): Product!
   products: [Product!]!
   randomProducts: [Product!]!
 }
