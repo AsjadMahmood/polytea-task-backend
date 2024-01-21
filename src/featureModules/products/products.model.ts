@@ -10,14 +10,6 @@ export class Product
   @Field(() => String)
   _id: MongooSchema.Types.ObjectId;
 
-  @Field((type) => Int)
-  @Prop()
-  id: number;
-
-  @Field()
-  @Prop()
-  name: string;
-
   @Field()
   @Prop()
   title: string;

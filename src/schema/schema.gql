@@ -8,9 +8,7 @@ type Product {
   category: String!
   description: String
   discountPercentage: Float!
-  id: Int!
   images: [String!]!
-  name: String!
   price: Float!
   rating: Float!
   stock: Float!
@@ -20,5 +18,6 @@ type Product {
 
 type Query {
   book(id: ID!): Product!
-  books: [Product!]!
+  products: [Product!]!
+  randomProducts: [Product!]!
 }

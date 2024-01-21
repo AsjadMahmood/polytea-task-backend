@@ -5,17 +5,23 @@ import { ProductService } from './products.service';
 @Resolver(() => Product)
 export class ProductResolver
 {
-  constructor(private readonly bookService: ProductService) { }
+  constructor(private readonly productService: ProductService) { }
 
-  @Query(() => [Product])
+  @Query(() => [Product], { name: 'randomProducts' })
+  async getRandomNumericData(): Promise<Product[]> 
+  {
+    return this.productService.getRandomNumericData();
+  }
+
+  @Query(() => [Product], { name: 'products' })
   async books(): Promise<Product[]>
   {
-    return this.bookService.findAll();
+    return this.productService.findAll();
   }
 
   @Query(() => Product)
   async book(@Args('id', { type: () => ID }) id: string): Promise<Product>
   {
-    return this.bookService.findOne(id);
+    return this.productService.findOne(id);
   }
 }

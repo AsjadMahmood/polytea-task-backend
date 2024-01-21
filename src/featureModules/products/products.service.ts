@@ -16,6 +16,12 @@ export class ProductService
     return createdProduct.save();
   }
 
+  async getRandomNumericData(): Promise<Product[]>
+  {
+    const randomProduct = await this.productModel.aggregate([{ $sample: { size: 4 } }]);
+    return randomProduct;
+  }
+
   async findAll(): Promise<Product[]>
   {
     return this.productModel.find().exec();

@@ -7,7 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import mongodbConfig from './config/mongodb.config';
-import { ProductModule } from './feature-modules/products/products.module';
+import { ProductModule } from './featureModules/products/products.module';
 
 @Module({
   imports: [

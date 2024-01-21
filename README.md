@@ -22,3 +22,9 @@ After running the sample, you can stop the Docker container with
 Then, run Nest as usual:
 
 `npm run start`
+
+### Populate DB
+
+The project gets dummy 'prodducts' data from 'https://dummyjson.com/products'. So run below command to script populate DB. Please run it at the last
+
+`npm run popluatedb`

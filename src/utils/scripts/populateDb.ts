@@ -1,6 +1,5 @@
 import * as mongoose from 'mongoose';
 import fetch from 'node-fetch';
-import data from '../assets/products.json';
 
 export const ProductSchema = new mongoose.Schema({
   brand: String,
@@ -19,7 +18,6 @@ const Product = mongoose.model('Product', ProductSchema);
 
 async function getProducts()
 {
-  return data
   return await (await fetch('https://dummyjson.com/products')).json();
 }
 
@@ -39,11 +37,12 @@ db.once('open', async () =>
 
   try {
     console.log('Fetching products...');
-    let products = getProducts();
+    let data = await getProducts();
+    let products = JSON.parse(JSON.stringify(data.products));
 
 
     // Uncomment the next line after verifying the fetched data
-    console.log('Products fetched:', products);
+
     console.log('Creating products in the database...');
     await Product.create(products);
 
